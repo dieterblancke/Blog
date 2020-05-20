@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Getting Started With ElectronJS - Tutorials - DBSoftwares</title>
+
+    <link href="../images/avatar.png" rel="icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Happy+Monkey" rel="stylesheet">
+    <link href="../assets/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" rel="stylesheet"/>
+    <link href="../assets/css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/subpage.css" rel="stylesheet" type="text/css"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css" rel="stylesheet">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-dark">
+        <ul class="navbar-nav w-100">
+            <li class="nav-item">
+                <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../index.html#about">About Me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../cv.html">Curriculum Vitae</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../index.html#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../vacancy.html">Vacancy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../index.html#tutorials">Tutorials</a>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <h1>Getting Started With ElectronJS</h1>
+    </div>
+</header>
+<main class="container">
+    <div id="tutorial">
+        <article>
+            <h2>What is ElectronJS?</h2>
+
+            <p>
+                ElectronJS is a NodeJS module that allows you to create desktop applications by using the same HTML, CSS
+                & JavaScript you know and love.
+                The web pages are rendered using Chromium, the open source project Google Chrome is based on.
+            </p>
+            <p>
+                ElectronJS is currently used by several big apps, just to name a few:
+            </p>
+            <ul style="list-style: disc; padding-left: 1rem;">
+                <li>DiscordJS</li>
+                <li>Atom.io</li>
+                <li>Slack</li>
+            </ul>
+        </article>
+
+        <article>
+            <h2>Requirements</h2>
+            <ul style="list-style: disc; padding-left: 1rem;">
+                <li>An IDE to write your code, or Notepad if you're <strong>really</strong> feeling it.</li>
+                <li>NodeJS and / or Yarn installed</li>
+            </ul>
+        </article>
+
+        <article id="setup-nodejs">
+            <h2>
+                Setting up NodeJS
+                <small style="font-size: .8rem">Skip this step if you already have NPM or Yarn installed on your
+                    system.</small>
+            </h2>
+
+            <p>
+                In order to be able to run ElectronJS, you will need to have NodeJS installed on your system.
+            </p>
+
+            <h3>Installing NodeJS on Windows / Mac</h3>
+            <p>
+                To install NodeJS on Windows or Mac, you can go to <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>,
+                here you can just download either the Window or Mac installer. <br/>
+                Once you downloaded the installer, you can just execute it and continue with the default options.
+            </p>
+
+            <h3>Installing NodeJS on Linux</h3>
+            <h4>Debian or Ubuntu</h4>
+            <pre><code class="bash">curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+
+            <h4>RHEL, CentOS, CloudLinux or Fedora</h4>
+            <pre><code class="bash">curl -sL https://rpm.nodesource.com/setup_13.x | sudo bash -</code></pre>
+
+            <h4>Other operating systems</h4>
+            <p>
+                If you are using another operating system that is not mentioned above, you can always check out the
+                <a href="https://nodejs.org/en/download/package-manager/">official NodeJS documentation</a> for your
+                specific OS.
+            </p>
+        </article>
+
+        <article id="setup-electronjs">
+            <h2>Setting up an ElectronJS project</h2>
+
+            <h3>Initializing your NodeJS project</h3>
+            <p>
+                For this example, lets just make a simple ElectronJS Calculator App, so the name of our app will be
+                "Calculator". <br/>
+                Lets start by making a directory called "Calculator" and initialize a NodeJS project inside of it, you
+                can do this as follows:
+            </p>
+            <pre><code class="bash">mkdir Calculator && cd Calculator
+npm init</code></pre>
+            <p>
+                Now you will get asked the information about the project. You can use the default for almost everything
+                (press ENTER to use default). <br/>
+                As description I entered "A basic calculator app" and the <strong>entry point can be set to
+                main.js</strong>.
+            </p>
+            <p>
+                Once you did that, you will get something like this:
+            </p>
+            <img alt="Example of NPM init" src="../images/tutorial1_img1.png" style="margin-bottom: 15px"/>
+            <p>
+                If all of this is correct, enter "yes" to confirm it. <br/>
+                Afterwards, lets run the following command to actually install NodeJS:
+            </p>
+            <pre><code class="bash">npm i -D electron</code></pre>
+        </article>
+
+        <article id="starting-electronjs">
+            <h2>Setting up base files</h2>
+
+            <p>
+                Lets start by setting up the base files. These files are: main.js & index.html.
+                The index.html file is just an empty html file for now. <br/>
+                All logic of creating a window is located in main.js:
+            </p>
+            <pre><code class="javascript">const {app, BrowserWindow} = require('electron');
+
+function createWindow() {
+    const mainWindow = new BrowserWindow({
+        width: 500,
+        height: 600,
+
+        // Setting icon location
+        icon: __dirname + '/media/favicon.jpg',
+
+        // Disabling resizing of our calculator window
+        resizable: false,
+        maximizable: false,
+        fullscreenable: false,
+    });
+
+    // Loads the file index.html into the window.
+    mainWindow.loadFile('index.html');
+
+    // Removes the ElectronJS menu
+    mainWindow.setMenu(null);
+}
+
+app.whenReady().then(createWindow);
+
+// Quit when all windows are closed.
+app.on('window-all-closed', function () {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+});
+
+app.on('activate', function () {
+    // On macOS it's common to re-create a window in the app when the
+    // dock icon is clicked and there are no other windows open.
+    if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
+    }
+});</code></pre>
+
+            <pre><code class="html">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+    &lt;title&gt;Calculator&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Calculator&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>
+                Once you created these files, you can try starting up your app in it's current state using the following
+                command:
+            </p>
+            <pre><code class="bash">electron .</code></pre>
+            <p>
+                This will open your Calculator app, you should now see the amazing "Calculator" title in it! This is how
+                you set up a basic ElectronJS project.
+            </p>
+        </article>
+
+        <article id="creating-calculator">
+            <h2>Creating the calculator</h2>
+
+            <p>
+                In ElectronJS, you can make your app like you make a site. In this example, I'll be using Bootstrap to
+                make it a bit easier to make our Calculator.
+            </p>
+            <pre><code class="html">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"&gt;
+	&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+	&lt;title&gt;Calculator&lt;/title&gt;
+	
+	&lt;link rel="stylesheet"
+	      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	      crossorigin="anonymous"/&gt;
+	&lt;link rel="stylesheet"
+	      href="assets/css/app.css"/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;main class="container-fluid"&gt;
+&lt;/main&gt;
+
+&lt;script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script src="assets/js/app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>
+                After this, all we have to do is add the rows with their buttons to the html file (main element), and
+                we're finished with the HTML!
+            </p>
+
+            <pre><code class="html">&lt;div class="row"&gt;
+	&lt;input type="text" id="result" class="form-control col-10"/&gt;
+	&lt;button id="clear" class="col-2"&gt;c&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="row h100 justify-content-center"&gt;
+	&lt;button data-action="1" class="col-3"&gt;1&lt;/button&gt;
+	&lt;button data-action="2" class="col-3"&gt;2&lt;/button&gt;
+	&lt;button data-action="3" class="col-3"&gt;3&lt;/button&gt;
+	&lt;button data-action="/" class="col-3"&gt;/&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="row h100 justify-content-center"&gt;
+	&lt;button data-action="4" class="col-3"&gt;4&lt;/button&gt;
+	&lt;button data-action="5" class="col-3"&gt;5&lt;/button&gt;
+	&lt;button data-action="6" class="col-3"&gt;6&lt;/button&gt;
+	&lt;button data-action="-" class="col-3"&gt;-&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="row h100 justify-content-center"&gt;
+	&lt;button data-action="7" class="col-3"&gt;7&lt;/button&gt;
+	&lt;button data-action="8" class="col-3"&gt;8&lt;/button&gt;
+	&lt;button data-action="9" class="col-3"&gt;9&lt;/button&gt;
+	&lt;button data-action="+" class="col-3"&gt;+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="row h100 justify-content-center"&gt;
+	&lt;button data-action="." class="col-3"&gt;.&lt;/button&gt;
+	&lt;button data-action="0" class="col-3"&gt;0&lt;/button&gt;
+	&lt;button data-action="=" class="col-3"&gt;=&lt;/button&gt;
+	&lt;button data-action="*" class="col-3"&gt;*&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+            <p>
+                For the CSS, we can just use some simple styling and let bootstrap do the rest. <br/>
+                Below you see <strong>assets/css/app.css</strong>:
+            </p>
+            <pre><code class="css">main {
+    width: 95% !important;
+    margin: 25px auto;
+}
+
+/*
+ * Setting height of elements
+ */
+#result, #clear {
+    display: block;
+    height: 75px;
+}
+
+.h100 button {
+    min-height: 100px;
+}
+
+/*
+ * Adding margin so everything isn't glued together.
+ */
+#result {
+    margin-right: 5px;
+}
+
+.row {
+    margin-bottom: 5px;
+}
+
+.row button {
+    margin-right: 5px;
+}
+
+.row button:last-child {
+    margin-right: 0;
+}
+
+/*
+ * Overriding some bootstrap classes
+ */
+.col-3 {
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+    max-width: 24%;
+}
+
+.col-10 {
+    -ms-flex: 0 0 82%;
+    flex: 0 0 82%;
+    max-width: 82%;
+}</code></pre>
+
+            <p>
+                And for the JavaScript, we use a fairly basic approach to calculate everything using the eval() function
+                of JavaScript.
+                This isn't the safest approach, but as this is only a short test / demonstration it is sufficient.
+                A wrong input will make it so the result returns 0. <br/>
+                Below you see <strong>assets/js/app.js</strong>:
+            </p>
+            <pre><code class="javascript">document.addEventListener('DOMContentLoaded', init);
+
+function init() {
+    const buttons = document.querySelectorAll('button');
+
+    for (const button of buttons) {
+        button.addEventListener('click', handleClick);
+    }
+
+    document.querySelector('#clear').addEventListener('click', clearResult);
+}
+
+function clearResult() {
+    document.querySelector('#result').value = '';
+}
+
+function handleClick(event) {
+    const action = event.target.getAttribute('data-action');
+
+    // If action is '=', then we'll calculate the result and stop.
+    if (action === '=') {
+        calculateResult();
+        return;
+    }
+    const resultInput = document.querySelector('#result');
+
+    // Validating action, making sure people cannot type "+*" for example or "*."
+    if (validateAction(action, resultInput)) {
+        // Adding the action to the result input field.
+        resultInput.value += action;
+    } else {
+        // Replacing the last action to the new action in the result input field.
+        resultInput.value = resultInput.value.substr(0, resultInput.value.length - 1) + action;
+    }
+}
+
+function validateAction(action, input) {
+    const lastChar = input.value[input.value.length - 1];
+
+    for (let char of ['.', '-', '+', '/', '*']) {
+        if (lastChar === char) {
+            for (let c of ['.', '-', '+', '/', '*']) {
+                if (action === c) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+function calculateResult() {
+    const resultInput = document.querySelector('#result');
+
+    try {
+        resultInput.value = eval(resultInput.value);
+    } catch (e) {
+        resultInput.value = '0';
+    }
+}</code></pre>
+        </article>
+
+        <article>
+            <h2>Compiling your app</h2>
+
+            <p>
+                Now that we finished our small app, we can try to compile it so anyone can run it without needing to
+                have Electron / NodeJS installed.
+                First, lets see if everything functions as we want by running our app for a last time:
+            </p>
+            <pre><code class="bash">electron .</code></pre>
+
+            <p>
+                If everything seems to be running as it should. Then we can compile our code into an executable.
+                For compilation, we will use <a href="https://github.com/electron-userland/electron-builder">Electron
+                Builder</a>.
+            </p>
+            <p>
+                Firstly, we need to install the electron-builder package:
+            </p>
+            <pre><code class="bash">npm i -D electron-builder</code></pre>
+            <p>
+                Secondly, we should add some extra options in the package.json file:
+            </p>
+            <pre><code class="json">"build": {
+  "appId": "your.application.id",
+},
+"scripts": {
+  "pack": "electron-builder --dir",
+  "dist": "electron-builder"
+}</code></pre>
+
+            <p>
+                Finally, you can build your app into an executable installer, it will be located in the dist/ folder:
+            </p>
+            <pre><code class="bash">npm run dist</code></pre>
+        </article>
+
+        <article id="slot">
+            <p>
+                That was it! Now you know how to build an ElectronJS app from scratch and compile it into an installer.
+                <br/>
+                ElectronJS allows you to go much further then just this application! Make sure to check out <a
+                    href="//electronjs.org">their website</a> aswell for some more detailed examples.
+            </p>
+            <p>
+                The code of this example is also available <a
+                    href="https://github.com/dieterblancke/Simple-Calculator-App">on my GitHub</a> for if you want to
+                play with it!
+            </p>
+        </article>
+    </div>
+</main>
+<footer>
+    <div>
+        <p>
+            Site made with <span style="color: #c60000;">&hearts;</span> by
+            <a href="//www.dbsoftwares.eu" target="_blank">Dieter Blancke</a>.
+        </p>
+        <ul class="links">
+            <li><a class="fab fa-twitter" href="https://twitter.com/dieterblancke/" target="_blank"></a></li>
+            <li><a class="fab fa-linkedin" href="https://www.linkedin.com/in/dieter-blancke/" target="_blank"></a></li>
+            <li><a class="fab fa-github-square" href="https://www.github.com/dieterblancke/" target="_blank"></a></li>
+            <li><a class="fab fa-gitlab" href="https://git.dbsoftwares.eu/" target="_blank"></a></li>
+            <li><a class="fab fa-discord" href="https://discord.dbsoftwares.eu/" target="_blank"></a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.17.3/build/global/luxon.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/ageparser.js"></script>
+
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.1.3/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+    let scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 1500
+    });
+</script>
+</body>
+</html>

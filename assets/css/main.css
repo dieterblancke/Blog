@@ -1,0 +1,330 @@
+html, body {
+    height: 100%;
+}
+
+header {
+    position: relative;
+    font-family: 'Happy Monkey', cursive;
+    color: white;
+    height: 80%;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header > div {
+    z-index: 30;
+}
+
+header::before {
+    content: ' ';
+    background: url('../media/headerbackground.jpg') no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .5;
+    z-index: -1;
+}
+
+header::after {
+    content: ' ';
+    background: rgba(0, 0, 0, 0.6);
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 10px;
+}
+
+header h2 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+header img {
+    margin-left: 25px;
+    max-height: 250px;
+    border-radius: 10%;
+}
+
+header a, header a:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+header a:hover {
+    color: dodgerblue;
+}
+
+nav.navbar {
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 15px !important;
+}
+
+.navbar-nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.nav-item {
+    padding: 20px;
+}
+
+nav ul li a, nav ul li span {
+    font-size: 1.4rem;
+    color: white !important;
+}
+
+nav ul li span {
+    cursor: pointer;
+}
+
+header .arrow {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    bottom: 20px;
+    border: solid lightgray;
+    border-width: 0 2px 2px 0;
+    cursor: pointer;
+}
+
+main section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+main section h2 {
+    font-family: 'Happy Monkey', cursive;
+    font-size: 2.3rem;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 10px;
+}
+
+main section p {
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+#about > div {
+    display: flex;
+    justify-content: space-around;
+}
+
+#about p {
+    width: 80%;
+    padding-top: 25px;
+    margin-bottom: 5px;
+}
+
+#about img {
+    border-radius: 10%;
+}
+
+#about ul {
+    text-align: left;
+    list-style: disc;
+    margin-left: 15px;
+}
+
+.aboutwrapper {
+    padding-left: 30px;
+}
+
+.comment {
+    display: block;
+    font-size: .75rem;
+    text-align: right;
+}
+
+#tutorials ul, #blog ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#tutorials figure, #blog figure {
+    position: relative;
+}
+
+#tutorials ul li, #blog ul li {
+    padding: 0 15px;
+}
+
+#tutorials ul a, #blog ul a {
+    font-size: 1.7rem;
+    color: white;
+}
+
+#tutorials figure img, #blog figure img {
+    width: 200px;
+    height: 200px;
+}
+
+#tutorials figure figcaption, #blog figure figcaption {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .85);
+}
+
+#tutorials a:hover figcaption, #blog a:hover figcaption {
+    display: flex;
+}
+
+footer {
+    padding: 15px 0;
+    box-shadow: inset 0 3px 3px -3px rgba(50, 50, 50, 0.75);
+}
+
+footer > div {
+    font-family: 'Happy Monkey', cursive;
+    margin: 5px auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p, footer ul {
+    margin-bottom: 0;
+}
+
+footer .links li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+footer .links li:last-of-type {
+    margin-right: 0;
+}
+
+footer .links a {
+    font-size: 2rem;
+}
+
+footer .links a:hover {
+    text-decoration: none;
+    filter: brightness(85%);
+}
+
+.fa-instagram {
+    color: #ff2468 !important;
+}
+
+.fa-discord {
+    color: #7289da !important;
+}
+
+.fa-linkedin {
+    color: #2567b3 !important;
+}
+
+.fa-github-square {
+    color: #323131 !important;
+}
+
+.fa-gitlab {
+    color: #fc6d26 !important;
+}
+
+/* Utility */
+.arrow {
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 10px;
+}
+
+.arrow.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.arrow.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.arrow.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.arrow.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+/* Media queries */
+@media (max-width: 1000px) {
+    #about p {
+        width: 100%;
+    }
+}
+
+@media (max-width: 890px) {
+    footer > div {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    footer p {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 850px) {
+    header {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    header > div {
+        text-align: center;
+    }
+}
+
+@media (max-width: 770px) {
+    #about img {
+        display: none;
+    }
+}
+
+@media (max-width: 510px) {
+    nav li:first-of-type {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    nav.navbar {
+        padding: 0 !important;
+    }
+}
